@@ -14,56 +14,74 @@ console.log(helloword3)
 
 
 
-// // 1. Ámbito (Scope)
-// // var: Tiene ámbito de función. Esto significa que una variable declarada con var es accesible dentro de toda la función en la que se ha declarado, independientemente de si está dentro de un bloque como if o for.
-// // let: Tiene ámbito de bloque. Las variables declaradas con let solo son accesibles dentro del bloque (delimitado por {}) donde fueron declaradas, como en bucles for, bloques if, etc.
-// // Ejemplo:
+// Scope
+
+// var: Has function scope. This means that a variable declared with var is accessible throughout the entire function where it is declared, even if it is inside a block such as an if or for statement.
+// let: Has block scope. Variables declared with let are only accessible within the block (delimited by {}) where they are declared, such as in loops, if blocks, etc.
 
 
-// // function testVarLet() {
-// //   if (true) {
-// //     var x = 10; // var tiene alcance de función
-// //     let y = 20; // let tiene alcance de bloque
-// //   }
-// //   console.log(x); // 10
-// //   console.log(y); // Error: y is not defined
-// // }
-// // testVarLet();
-
-// // 2. Hoisting
-// // var: Las variables declaradas con var se "elevan" (hoisting) al inicio de su contexto de ejecución (la función o el script). Esto significa que pueden ser utilizadas antes de ser declaradas, pero su valor será undefined hasta que se alcance la asignación.
-// // let: También es "hoisted", pero no se puede acceder a la variable hasta que el código llegue a su declaración. Esto crea un "Temporal Dead Zone (TDZ)", donde el acceso a la variable antes de su declaración genera un error.
-// // Ejemplo con var:
+// Example:
+// javascript
+// Copiar código
+// function testVarLet() {
+//   if (true) {
+//     var x = 10; // var has function scope
+//     let y = 20; // let has block scope
+//   }
+//   console.log(x); // 10
+//   console.log(y); // Error: y is not defined
+// }
+// testVarLet();
 
 
-// console.log(a); // undefined (la declaración de var se eleva)
+
+// Hoisting
+
+// var: Variables declared with var are "hoisted" to the top of their execution context (the function or script). This means they can be used before being declared, but their value will be undefined until the assignment is reached.
+// let: Is also hoisted, but you cannot access the variable until the code reaches the declaration. This creates a "Temporal Dead Zone (TDZ)", where accessing the variable before its declaration throws an error.
+
+// Example with var:
+// javascript
+
+// console.log(a); // undefined (the var declaration is hoisted)
 // var a = 5;
 
 // console.log(b); // Error: Cannot access 'b' before initialization
 // let b = 5;
 
-// // 3. Re-declaración
-// // var: Permite re-declarar la misma variable dentro del mismo ámbito sin generar errores, lo que puede llevar a errores difíciles de detectar.
-// // let: No permite re-declarar una variable en el mismo ámbito, lo que ayuda a evitar errores.
-// // Ejemplo:
 
 
+// Re-declaration
+
+// var: Allows re-declaration of the same variable within the same scope without generating errors, which can lead to hard-to-detect issues.
+// let: Does not allow re-declaration of a variable in the same scope, which helps prevent errors.
+// Example:
+// javascript
+// Copiar código
 // var x = 10;
-// var x = 20; // No hay problema
+// var x = 20; // No problem
 
 // // let y = 10;
 // // let y = 20; // Error: Identifier 'y' has already been declared
 
-// // 4. Ámbito global
-// // var: Si declaras una variable con var fuera de cualquier función (en el ámbito global), esta se convierte en una propiedad del objeto global (window en navegadores).
-// // let: Si declaras una variable con let en el ámbito global, no se convierte en una propiedad del objeto global.
 
-// // var a = 5;
-// // let b = 10;
+
+
+// Global Scope
+
+// var: If you declare a variable with var outside of any function (in the global scope), it becomes a property of the global object (window in browsers).
+// let: If you declare a variable with let in the global scope, it does not become a property of the global object.
+// javascript
+// Copiar código
+// var a = 5;
+// let b = 10;
 
 // console.log(window.a); // 5
 // console.log(window.b); // undefined
-// Resumen
 
-// // var tiene ámbito de función, se eleva al inicio del contexto de ejecución y permite re-declaraciones.
-// // let tiene ámbito de bloque, es más seguro en cuanto a uso antes de la declaración (gracias a la Temporal Dead Zone) y no permite re-declaraciones en el mismo ámbito.
+
+
+
+// Summary
+// var has function scope, is hoisted to the top of its execution context, and allows re-declarations.
+// let has block scope, is safer regarding use before declaration (thanks to the Temporal Dead Zone), and does not allow re-declarations in the same scope.
